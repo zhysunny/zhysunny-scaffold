@@ -1,0 +1,14 @@
+version: '3'
+services:
+  redis:
+    hostname: scaffold
+    image: scaffold:1.0.0
+    container_name: scaffold
+    environment:
+    - TZ=Asia/Shanghai
+    volumes:
+    - /etc/localtime:/etc/localtime:ro # 设置容器时区与宿主机保持一致
+    - /opt/zhysunny/scaffold/logs:/opt/zhysunny/scaffold/logs
+    ports:
+    - "8080:8080"
+    - "30080:30080"
