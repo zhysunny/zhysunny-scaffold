@@ -15,7 +15,7 @@ public class HelloController {
     @Autowired
     private HelloService helloService;
 
-    @GetMapping(value = "/")
+    @GetMapping(value = "/hello")
     public String hello() {
         Hello hello = helloService.hello();
         return String.format("Hello %s! This port: %d", hello.getName(), hello.getPort());

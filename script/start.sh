@@ -12,4 +12,4 @@ JAVA_OPTS="${JAVA_OPTS} -Djava.ext.dirs=${APP_ROOT}:${APP_ROOT}/lib:${JAVA_HOME}
 JAVA_OPTS="${JAVA_OPTS} -Dprofile=${PROFILE}"
 JAVA_OPTS="${JAVA_OPTS} -Dlog.dir=${APP_ROOT}"
 
-${JAVA_HOME}/bin/java ${JAVA_OPTS} com.zhysunny.scaffold.ScaffoldMain 1 > /dev/null 2 > ${APP_ROOT}/logs/out.log &
+${JAVA_HOME}/bin/java ${JAVA_OPTS} ${PROCESS_NAME} 1 > /dev/null 2 > ${APP_ROOT}/logs/out.log &
