@@ -1,8 +1,8 @@
 version: '3'
 services:
-  redis:
+  scaffold:
     hostname: scaffold
-    image: scaffold:1.0.0
+    image: scaffold:1.0.1
     container_name: scaffold
     environment:
     - TZ=Asia/Shanghai

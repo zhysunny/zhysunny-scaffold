@@ -1,4 +1,4 @@
-FROM centos7/java:1.0.0
+FROM centos7/java:1.0.1
 MAINTAINER zhysunny
 USER root
 
