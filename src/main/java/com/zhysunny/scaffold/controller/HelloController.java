@@ -1,5 +1,6 @@
 package com.zhysunny.scaffold.controller;
 
+import com.zhysunny.scaffold.bean.CommonResult;
 import com.zhysunny.scaffold.pojo.Hello;
 import com.zhysunny.scaffold.service.HelloService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,9 +17,10 @@ public class HelloController {
     private HelloService helloService;
 
     @GetMapping(value = "/hello")
-    public String hello() {
+    public CommonResult hello() {
         Hello hello = helloService.hello();
-        return String.format("Hello %s! This port: %d", hello.getName(), hello.getPort());
+        String data = String.format("Hello %s! This port: %d", hello.getName(), hello.getPort());
+        return CommonResult.success(data);
     }
 
 }
