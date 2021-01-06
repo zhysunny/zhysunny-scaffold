@@ -1,43 +1,53 @@
-import { login, logout, getInfo } from '@/api/user'
-import { getToken, setToken, removeToken } from '@/utils/auth'
+import { getInfo, login, logout } from '@/api/user'
+import { getToken, removeToken, setToken } from '@/utils/auth'
 import router, { resetRouter } from '@/router'
 
 const state = {
-  token: getToken(),
+  token: '',
+  userId: '',
   name: '',
-  avatar: '',
-  introduction: '',
-  roles: []
+  roleName: '',
+  status: '',
+  avatar: 'https://wpimg.wallstcn.com/f778738c-e4f8-4870-b634-56703b4acafe.gif',
+  permissionList: []
 }
 
 const mutations = {
   SET_TOKEN: (state, token) => {
     state.token = token
+    setToken(token)
   },
-  SET_INTRODUCTION: (state, introduction) => {
-    state.introduction = introduction
+  SET_USER: (state, user) => {
+    state.userId = user.id
+    state.name = user.name
+    state.roleName = user.role
+    state.status = user.status
+    if (user.role === 'admin') {
+      state.permissionList = ['admin', 'user']
+    } else {
+      user.role.split(',').forEach(p => {
+        state.permissionList.push(p)
+      })
+    }
   },
-  SET_NAME: (state, name) => {
-    state.name = name
-  },
-  SET_AVATAR: (state, avatar) => {
-    state.avatar = avatar
-  },
-  SET_ROLES: (state, roles) => {
-    state.roles = roles
+  RESET_USER: (state) => {
+    state.token = ''
+    state.userId = -1
+    state.name = ''
+    state.roleName = ''
+    state.status = ''
+    state.permissionList = []
   }
 }
 
 const actions = {
   // user login
-  login({ commit }, userInfo) {
-    const { username, password } = userInfo
+  login({ commit }, loginInfo) {
+    const { username, password } = loginInfo
     return new Promise((resolve, reject) => {
-      login({ username: username.trim(), password: password }).then(response => {
-        const { data } = response
-        commit('SET_TOKEN', data.token)
-        setToken(data.token)
-        resolve()
+      login({ name: username.trim(), password: password }).then(response => {
+        commit('SET_TOKEN', response.data.data)
+        resolve(response.data.data)
       }).catch(error => {
         reject(error)
       })
@@ -45,27 +55,14 @@ const actions = {
   },
 
   // get user info
-  getInfo({ commit, state }) {
+  getInfo({ commit }) {
     return new Promise((resolve, reject) => {
-      getInfo(state.token).then(response => {
-        const { data } = response
-
-        if (!data) {
+      getInfo(getToken()).then(response => {
+        if (!response) {
           reject('Verification failed, please Login again.')
         }
-
-        const { roles, name, avatar, introduction } = data
-
-        // roles must be a non-empty array
-        if (!roles || roles.length <= 0) {
-          reject('getInfo: roles must be a non-null array!')
-        }
-
-        commit('SET_ROLES', roles)
-        commit('SET_NAME', name)
-        commit('SET_AVATAR', avatar)
-        commit('SET_INTRODUCTION', introduction)
-        resolve(data)
+        commit('SET_USER', response.data.data)
+        resolve(response.data.data)
       }).catch(error => {
         reject(error)
       })
@@ -73,32 +70,16 @@ const actions = {
   },
 
   // user logout
-  logout({ commit, state, dispatch }) {
+  logout({ commit }) {
     return new Promise((resolve, reject) => {
-      logout(state.token).then(() => {
-        commit('SET_TOKEN', '')
-        commit('SET_ROLES', [])
+      logout().then(() => {
+        commit('RESET_USER')
         removeToken()
         resetRouter()
-
-        // reset visited views and cached views
-        // to fixed https://github.com/PanJiaChen/vue-element-admin/issues/2485
-        dispatch('tagsView/delAllViews', null, { root: true })
-
         resolve()
       }).catch(error => {
         reject(error)
       })
-    })
-  },
-
-  // remove token
-  resetToken({ commit }) {
-    return new Promise(resolve => {
-      commit('SET_TOKEN', '')
-      commit('SET_ROLES', [])
-      removeToken()
-      resolve()
     })
   },
 

@@ -23,10 +23,12 @@ const users = {
   }
 }
 
+const baseApi = '/mock'
+
 module.exports = [
   // user login
   {
-    url: '/vue-element-admin/user/login',
+    url: baseApi + '/user/login',
     type: 'post',
     response: config => {
       const { username } = config.body
@@ -35,13 +37,13 @@ module.exports = [
       // mock error
       if (!token) {
         return {
-          code: 60204,
+          code: 401,
           message: 'Account and password are incorrect.'
         }
       }
 
       return {
-        code: 20000,
+        code: 200,
         data: token
       }
     }
@@ -49,7 +51,7 @@ module.exports = [
 
   // get user info
   {
-    url: '/vue-element-admin/user/info\.*',
+    url: baseApi + '/user/info\.*',
     type: 'get',
     response: config => {
       const { token } = config.query
@@ -58,13 +60,13 @@ module.exports = [
       // mock error
       if (!info) {
         return {
-          code: 50008,
+          code: 401,
           message: 'Login failed, unable to get user details.'
         }
       }
 
       return {
-        code: 20000,
+        code: 200,
         data: info
       }
     }
@@ -72,11 +74,11 @@ module.exports = [
 
   // user logout
   {
-    url: '/vue-element-admin/user/logout',
+    url: baseApi + '/user/logout',
     type: 'post',
     response: _ => {
       return {
-        code: 20000,
+        code: 200,
         data: 'success'
       }
     }

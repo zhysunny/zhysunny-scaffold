@@ -1,5 +1,9 @@
 server:
   port: 8080
+  servlet:
+    session:
+      timeout: 5m
+    context-path: /rest/zhysunny/scaffold
 
 #数据库配置
 spring:
