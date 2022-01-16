@@ -9,7 +9,7 @@ ARG APP_NAME=scaffold
 ARG APP_VERSION=1.0.0
 ARG APP_ROOT=${BASE_DIR}/${APP_NAME}
 ARG PROFILE=dev
-ARG PROCESS_NAME=com.zhysunny.scaffold.ScaffoldMain
+ARG PROCESS_NAME=com.zhysunny.ApplicationMain
 ARG PACKAGE_NAME=${APP_NAME}-${APP_VERSION}.tar.gz
 
 ENV APP_NAME=${APP_NAME} \

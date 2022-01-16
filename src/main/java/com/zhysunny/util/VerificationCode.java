@@ -1,4 +1,4 @@
-package com.zhysunny.scaffold.util;
+package com.zhysunny.util;
 
 import javax.imageio.ImageIO;
 import java.awt.BasicStroke;

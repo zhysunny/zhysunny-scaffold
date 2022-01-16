@@ -1,7 +1,7 @@
-package com.zhysunny.scaffold.bean;
+package com.zhysunny.bean;
 
-import com.zhysunny.scaffold.exception.IErrorCode;
-import com.zhysunny.scaffold.exception.ResultCode;
+import com.zhysunny.exception.IErrorCode;
+import com.zhysunny.exception.ResultCode;
 
 /**
  * @author zhysunny

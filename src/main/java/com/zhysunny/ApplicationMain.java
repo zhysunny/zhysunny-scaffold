@@ -1,4 +1,4 @@
-package com.zhysunny.scaffold;
+package com.zhysunny;
 
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
@@ -16,11 +16,11 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @ImportResource("spring/*.xml")
 @ServletComponentScan
 @EnableTransactionManagement
-@MapperScan(basePackages = {"com.zhysunny.scaffold.mapper"})
-public class ScaffoldMain {
+@MapperScan(basePackages = {"com.zhysunny.mapper"})
+public class ApplicationMain {
     private static ApplicationContext ctx;
 
     public static void main(String[] args) {
-        ctx = SpringApplication.run(ScaffoldMain.class, args);
+        ctx = SpringApplication.run(ApplicationMain.class, args);
     }
 }

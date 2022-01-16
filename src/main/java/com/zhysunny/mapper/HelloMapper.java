@@ -1,6 +1,6 @@
-package com.zhysunny.scaffold.mapper;
+package com.zhysunny.mapper;
 
-import com.zhysunny.scaffold.pojo.Hello;
+import com.zhysunny.pojo.Hello;
 
 /**
  * @author zhysunny

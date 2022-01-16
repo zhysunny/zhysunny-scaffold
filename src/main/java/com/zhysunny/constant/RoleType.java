@@ -1,4 +1,4 @@
-package com.zhysunny.scaffold.constant;
+package com.zhysunny.constant;
 
 /**
  * @author zhysunny

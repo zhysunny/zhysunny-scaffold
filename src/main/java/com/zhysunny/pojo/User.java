@@ -1,4 +1,4 @@
-package com.zhysunny.scaffold.pojo;
+package com.zhysunny.pojo;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -6,13 +6,19 @@ import lombok.NoArgsConstructor;
 
 /**
  * @author zhysunny
- * @date 2020/12/12 11:40
+ * @date 2020/12/20 20:47
  */
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Hello {
+public class User {
+    private Long id;
+
     private String name;
 
-    private int port;
+    private String role;
+
+    private int status;
+
+    private String password;
 }

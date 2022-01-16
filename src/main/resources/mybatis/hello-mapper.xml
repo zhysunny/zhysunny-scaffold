@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.zhysunny.scaffold.mapper.HelloMapper">
-    <select id="hello" resultType="com.zhysunny.scaffold.pojo.Hello">
+<mapper namespace="com.zhysunny.mapper.HelloMapper">
+    <select id="hello" resultType="com.zhysunny.pojo.Hello">
         select `name`, `port` from `hello` limit 0,1
     </select>
 </mapper>

@@ -1,8 +1,8 @@
-package com.zhysunny.scaffold.controller;
+package com.zhysunny.controller;
 
-import com.zhysunny.scaffold.bean.CommonResult;
-import com.zhysunny.scaffold.pojo.User;
-import com.zhysunny.scaffold.service.UserService;
+import com.zhysunny.bean.CommonResult;
+import com.zhysunny.pojo.User;
+import com.zhysunny.service.UserService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;

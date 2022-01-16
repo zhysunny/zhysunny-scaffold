@@ -1,8 +1,8 @@
-package com.zhysunny.scaffold.controller;
+package com.zhysunny.controller;
 
-import com.zhysunny.scaffold.bean.CommonResult;
-import com.zhysunny.scaffold.pojo.Hello;
-import com.zhysunny.scaffold.service.HelloService;
+import com.zhysunny.bean.CommonResult;
+import com.zhysunny.pojo.Hello;
+import com.zhysunny.service.HelloService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;

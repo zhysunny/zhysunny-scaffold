@@ -23,4 +23,4 @@ spring:
 #mybatis配置
 mybatis:
   mapper-locations: mybatis/*.xml
-  type-aliases-package: com.zhysunny.scaffold.pojo
+  type-aliases-package: com.zhysunny.pojo

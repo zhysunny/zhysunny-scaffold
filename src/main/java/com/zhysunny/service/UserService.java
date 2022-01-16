@@ -1,7 +1,7 @@
-package com.zhysunny.scaffold.service;
+package com.zhysunny.service;
 
-import com.zhysunny.scaffold.constant.RoleType;
-import com.zhysunny.scaffold.pojo.User;
+import com.zhysunny.constant.RoleType;
+import com.zhysunny.pojo.User;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Service;
 import java.util.ArrayList;

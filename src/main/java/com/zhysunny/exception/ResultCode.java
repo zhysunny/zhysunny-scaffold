@@ -1,4 +1,4 @@
-package com.zhysunny.scaffold.exception;
+package com.zhysunny.exception;
 
 /**
  * @author zhysunny

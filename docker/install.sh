@@ -3,4 +3,4 @@
 # Author      : zhysunny
 # Date        : 2020/7/29 23:41
 
-docker-compose -f scaffold.yml up -d
+docker-compose -f docker-compose.yml up -d

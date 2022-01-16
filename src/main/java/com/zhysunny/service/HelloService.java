@@ -1,7 +1,7 @@
-package com.zhysunny.scaffold.service;
+package com.zhysunny.service;
 
-import com.zhysunny.scaffold.mapper.HelloMapper;
-import com.zhysunny.scaffold.pojo.Hello;
+import com.zhysunny.pojo.Hello;
+import com.zhysunny.mapper.HelloMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
